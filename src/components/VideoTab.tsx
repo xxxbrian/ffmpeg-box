@@ -1,4 +1,5 @@
 import React from "react";
+import { Box } from "@radix-ui/themes";
 import LineSelect, { type LineSelectProps } from "./basic/LineSelect";
 import LineInput, { LineInputProps } from "./basic/LineInput";
 
@@ -131,25 +132,18 @@ const videoConfig: VideoConfig[] = [
 const VideoTab: React.FC = () => {
   return (
     <>
-      {videoConfig.map((config, index) => {
-        if (config.type === "selects") {
-          return (
+      {videoConfig.map((config, index) => (
+        <Box key={index} mb="4">
+          {config.type === "selects" && (
             <LineSelect
-              key={`${config.type}-${index}`}
               options={config.options as LineSelectProps["options"]}
             />
-          );
-        }
-        else if (config.type === "inputs") {
-          return (
-            <LineInput
-              key={`${config.type}-${index}`}
-              options={config.options as LineInputProps["options"]}
-            />
-          );
-        }
-        return null;
-      })}
+          )}
+          {config.type === "inputs" && (
+            <LineInput options={config.options as LineInputProps["options"]} />
+          )}
+        </Box>
+      ))}
     </>
   );
 };
