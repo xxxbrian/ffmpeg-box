@@ -1,10 +1,10 @@
 import React from "react";
-import { Text } from "@radix-ui/themes";
 import LineSelect, { type LineSelectProps } from "./basic/LineSelect";
+import LineInput, { LineInputProps } from "./basic/LineInput";
 
 type VideoConfig = {
   type: string;
-  options: LineSelectProps["options"];
+  options: LineSelectProps["options"] | LineInputProps["options"];
 };
 
 const videoConfig: VideoConfig[] = [
@@ -81,23 +81,75 @@ const videoConfig: VideoConfig[] = [
       },
     ],
   },
+  {
+    type: "inputs",
+    options: [
+      {
+        name: "Bit Rate",
+        placeholder: "Bit Rate",
+        value: "",
+        onChange: (value: string) => {
+          console.log(value);
+        },
+      },
+      {
+        name: "Min Rate",
+        placeholder: "Min Rate",
+        value: "",
+        onChange: (value: string) => {
+          console.log(value);
+        },
+      },
+      {
+        name: "Max Rate",
+        placeholder: "Max Rate",
+        value: "",
+        onChange: (value: string) => {
+          console.log(value);
+        },
+      },
+      {
+        name: "Buffer Size",
+        placeholder: "Buffer Size",
+        value: "",
+        onChange: (value: string) => {
+          console.log(value);
+        },
+      },
+      {
+        name: "GOP Size",
+        placeholder: "GOP Size",
+        value: "",
+        onChange: (value: string) => {
+          console.log(value);
+        },
+      },
+    ],
+  },
 ];
 
 const VideoTab: React.FC = () => {
   return (
     <>
-      {videoConfig.map((config, index) =>
-        config.type === "selects" ? (
-          <LineSelect
-            key={`${config.type}-${index}`}
-            options={config.options}
-          />
-        ) : (
-          <Text key={`unknown-${index}`} size="2">
-            Edit your {config.type} settings.
-          </Text>
-        )
-      )}
+      {videoConfig.map((config, index) => {
+        if (config.type === "selects") {
+          return (
+            <LineSelect
+              key={`${config.type}-${index}`}
+              options={config.options as LineSelectProps["options"]}
+            />
+          );
+        }
+        else if (config.type === "inputs") {
+          return (
+            <LineInput
+              key={`${config.type}-${index}`}
+              options={config.options as LineInputProps["options"]}
+            />
+          );
+        }
+        return null;
+      })}
     </>
   );
 };
