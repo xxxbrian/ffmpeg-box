@@ -22,6 +22,17 @@ type Config = {
     maxRate: string;
     bufferSize: string;
     gopSize: string;
+    pixelFormat: string;
+    frameRate: string;
+    speed: string;
+    tune: string;
+    profile: string;
+    level: string;
+    fastStart: string;
+    size: string;
+    format: string;
+    aspect: string;
+    scaling: string;
   };
   audio: Record<string, any>;
   filters: Record<string, any>;
@@ -47,6 +58,17 @@ const initailConfig: Config = {
     maxRate: "",
     bufferSize: "",
     gopSize: "",
+    pixelFormat: "auto",
+    frameRate: "auto",
+    speed: "auto",
+    tune: "none",
+    profile: "none",
+    level: "none",
+    fastStart: "none",
+    size: "source",
+    format: "widescreen",
+    aspect: "auto",
+    scaling: "auto",
   },
   audio: {},
   filters: {},
