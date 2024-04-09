@@ -15,13 +15,18 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "startDragging": true
       }
     },
     "windows": [
       {
         "title": "ffmpeg-box",
+        "hiddenTitle":true,
         "width": 800,
-        "height": 600
+        "height": 800,
+        "titleBarStyle":"Overlay"
       }
     ],
     "security": {
