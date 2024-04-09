@@ -1,5 +1,6 @@
-import { Tabs, Box, Text, Select, Flex, TextField } from "@radix-ui/themes";
+import { Tabs, Box, Text, Select, Flex } from "@radix-ui/themes";
 import "./App.css";
+import VideoTab from "./components/VideoTab";
 
 function App() {
   return (
@@ -86,38 +87,7 @@ function App() {
             </Tabs.Content>
 
             <Tabs.Content value="video">
-              <Flex direction="row" justify="between" gap="3" maxWidth="700px">
-                <Flex direction="column" width="100%">
-                  <Text as="label" size="2">
-                    Bit Rate:
-                  </Text>
-                  <TextField.Root size="2" placeholder="Bit Rate" />
-                </Flex>
-                <Flex direction="column" width="100%">
-                  <Text as="label" size="2">
-                    Min Rate:
-                  </Text>
-                  <TextField.Root size="2" placeholder="Min Rate" />
-                </Flex>
-                <Flex direction="column" width="100%">
-                  <Text as="label" size="2">
-                    Max Rate:
-                  </Text>
-                  <TextField.Root size="2" placeholder="Max Rate" />
-                </Flex>
-                <Flex direction="column" width="100%">
-                  <Text as="label" size="2">
-                    Buffer Size:
-                  </Text>
-                  <TextField.Root size="2" placeholder="Buffer Size" />
-                </Flex>
-                <Flex direction="column" width="100%">
-                  <Text as="label" size="2">
-                    GOP Size:
-                  </Text>
-                  <TextField.Root size="2" placeholder="GOP Size" />
-                </Flex>
-              </Flex>
+              <VideoTab />
             </Tabs.Content>
 
             <Tabs.Content value="audio">
