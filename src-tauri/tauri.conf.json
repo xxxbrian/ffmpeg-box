@@ -24,8 +24,8 @@
       {
         "title": "ffmpeg-box",
         "hiddenTitle":true,
-        "width": 800,
-        "height": 800,
+        "width": 900,
+        "height": 700,
         "titleBarStyle":"Overlay"
       }
     ],
