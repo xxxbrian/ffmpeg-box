@@ -1,8 +1,124 @@
+import { useEffect, useReducer } from "react";
 import { Tabs, Box, Text, Select, Flex } from "@radix-ui/themes";
 import "./App.css";
 import VideoTab from "./components/VideoTab";
 
+type Config = {
+  input: {
+    path: string;
+    name: string;
+    ext: string;
+  };
+  format: {
+    container: string;
+    clip: string;
+  };
+  video: {
+    codec: string;
+    preset: string;
+    pass: string;
+    bitRate: string;
+    minRate: string;
+    maxRate: string;
+    bufferSize: string;
+    gopSize: string;
+  };
+  audio: Record<string, any>;
+  filters: Record<string, any>;
+  options: Record<string, any>;
+};
+
+const initailConfig: Config = {
+  input: {
+    path: "",
+    name: "",
+    ext: "",
+  },
+  format: {
+    container: "mp4",
+    clip: "none",
+  },
+  video: {
+    codec: "h264",
+    preset: "none",
+    pass: "1 Pass",
+    bitRate: "",
+    minRate: "",
+    maxRate: "",
+    bufferSize: "",
+    gopSize: "",
+  },
+  audio: {},
+  filters: {},
+  options: {},
+};
+
+const reducer = (
+  state: Config,
+  action: { type: string; payload: Record<string, any> },
+) => {
+  switch (action.type) {
+    case "updateFormat":
+      return {
+        ...state,
+        format: {
+          ...state.format,
+          ...action.payload,
+        },
+      };
+    case "updateVideo":
+      return {
+        ...state,
+        video: {
+          ...state.video,
+          ...action.payload,
+        },
+      };
+    case "updateAudio":
+      return {
+        ...state,
+        audio: {
+          ...state.audio,
+          ...action.payload,
+        },
+      };
+    case "updateFilters":
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          ...action.payload,
+        },
+      };
+    case "updateOptions":
+      return {
+        ...state,
+        options: {
+          ...state.options,
+          ...action.payload,
+        },
+      };
+    default:
+      return state;
+  }
+};
+
 function App() {
+  const [state, dispatch] = useReducer(reducer, initailConfig);
+
+  const videoOnChange = (key: string, value: string) => {
+    dispatch({
+      type: "updateVideo",
+      payload: {
+        [key]: value,
+      },
+    });
+  };
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
+
   return (
     <div
       data-tauri-drag-region
@@ -87,7 +203,7 @@ function App() {
             </Tabs.Content>
 
             <Tabs.Content value="video">
-              <VideoTab />
+              <VideoTab items={state.video} onChange={videoOnChange} />
             </Tabs.Content>
 
             <Tabs.Content value="audio">
