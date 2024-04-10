@@ -11,7 +11,7 @@ export interface ContainerSelectProps {
   itemKey: string;
   defaultOption: string;
   optionGroups: Groups[];
-  item: Record<string, string>;
+  value: string;
   onChange: (key: string, value: string) => void;
 }
 
@@ -20,7 +20,7 @@ const ContainerSelect: React.FC<ContainerSelectProps> = ({
   itemKey,
   defaultOption,
   optionGroups,
-  item,
+  value,
   onChange,
 }) => {
   return (
@@ -30,7 +30,7 @@ const ContainerSelect: React.FC<ContainerSelectProps> = ({
       </Text>
       <Select.Root
         defaultValue={defaultOption}
-        value={item[itemKey]}
+        value={value}
         onValueChange={(value) => onChange(itemKey, value)}
       >
         <Select.Trigger />

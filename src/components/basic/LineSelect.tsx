@@ -2,7 +2,7 @@ import React from "react";
 import { Flex } from "@radix-ui/themes";
 import ContainerSelect, { type ContainerSelectProps } from "./ContainerSelect";
 
-type Option = Omit<ContainerSelectProps, "item" | "onChange">;
+type Option = Omit<ContainerSelectProps, "value" | "onChange">;
 
 export interface LineSelectProps {
   options: Option[];
@@ -16,7 +16,7 @@ const LineSelect: React.FC<LineSelectProps> = ({ options, item, onChange }) => {
       {options.map((option) => (
         <ContainerSelect
           {...option}
-          item={item}
+          value={item[option.itemKey]}
           onChange={onChange}
           key={option.itemKey}
         />

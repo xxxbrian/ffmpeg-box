@@ -2,7 +2,7 @@ import React from "react";
 import { Flex } from "@radix-ui/themes";
 import ContainerInput, { type ContainerInputProps } from "./ContainerInput";
 
-type Option = Omit<ContainerInputProps, "item" | "onChange">;
+type Option = Omit<ContainerInputProps, "value" | "onChange">;
 
 export interface LineInputProps {
   options: Option[];
@@ -16,7 +16,7 @@ const LineInput: React.FC<LineInputProps> = ({ options, item, onChange }) => {
       {options.map((option) => (
         <ContainerInput
           {...option}
-          item={item}
+          value={item[option.itemKey]}
           onChange={onChange}
           key={option.itemKey}
         />

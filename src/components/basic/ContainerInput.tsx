@@ -5,8 +5,8 @@ export interface ContainerInputProps {
   name: string;
   itemKey: string;
   placeholder: string;
-  // value: string;
-  item: Record<string, string>;
+  value: string;
+  // item: Record<string, string>;
   onChange: (key: string, value: string) => void;
 }
 
@@ -14,7 +14,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
   name,
   itemKey,
   placeholder,
-  item,
+  value,
   onChange,
 }) => {
   return (
@@ -23,7 +23,7 @@ const ContainerInput: React.FC<ContainerInputProps> = ({
         {name}:
       </Text>
       <TextField.Root
-        value={item[name]}
+        value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(itemKey, e.target.value)}
       />
