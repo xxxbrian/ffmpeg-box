@@ -176,52 +176,7 @@ function App() {
 
           <Box pt="3">
             <Tabs.Content value="format">
-              <Flex direction="row" justify="between" gap="3">
-                <Flex direction="column" width="100%">
-                  <Text as="label" size="2">
-                    Container:
-                  </Text>
-                  <Select.Root defaultValue="mp4">
-                    <Select.Trigger />
-                    <Select.Content>
-                      <Select.Group>
-                        <Select.Label>Video</Select.Label>
-                        <Select.Item value="mp4">MP4</Select.Item>
-                        <Select.Item value="mkv">MKV</Select.Item>
-                        <Select.Item value="mov">MOV</Select.Item>
-                        <Select.Item value="webm">WebM</Select.Item>
-                        <Select.Item value="mpg">MPG</Select.Item>
-                        <Select.Item value="avi">AVI</Select.Item>
-                        <Select.Item value="ogv">OGV</Select.Item>
-                        <Select.Item value="flv">FLV</Select.Item>
-                      </Select.Group>
-                      <Select.Separator />
-                      <Select.Group>
-                        <Select.Label>Audio</Select.Label>
-                        <Select.Item value="mp3">MP3</Select.Item>
-                        <Select.Item value="m4a">M4A</Select.Item>
-                        <Select.Item value="wav">WAV</Select.Item>
-                        <Select.Item value="ogg">OGG</Select.Item>
-                        <Select.Item value="flac">FLAC</Select.Item>
-                      </Select.Group>
-                    </Select.Content>
-                  </Select.Root>
-                </Flex>
-                <Flex direction="column" width="100%">
-                  <Text as="label" size="2">
-                    Clip:
-                  </Text>
-                  <Select.Root defaultValue="none">
-                    <Select.Trigger />
-                    <Select.Content>
-                      <Select.Group>
-                        <Select.Item value="none">None</Select.Item>
-                        <Select.Item value="enabled">Enabled</Select.Item>
-                      </Select.Group>
-                    </Select.Content>
-                  </Select.Root>
-                </Flex>
-              </Flex>
+              <Text size="2">Edit your format settings.</Text>
             </Tabs.Content>
 
             <Tabs.Content value="video">
