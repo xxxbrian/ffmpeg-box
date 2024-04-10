@@ -366,7 +366,7 @@ const VideoTab: React.FC<VideoTabProps> = ({ items, onChange }) => {
   return (
     <>
       {videoConfig.map((config, index) => (
-        <Box key={index} mb="4">
+        <Box key={`${config.type}-${index}`} mb="4">
           {config.type === "selects" && (
             <LineSelect
               options={config.options as LineSelectProps["options"]}

@@ -20,6 +20,7 @@ const ContainerSelect: React.FC<ContainerSelectProps> = ({
   itemKey,
   defaultOption,
   optionGroups,
+  item,
   onChange,
 }) => {
   return (
@@ -29,6 +30,7 @@ const ContainerSelect: React.FC<ContainerSelectProps> = ({
       </Text>
       <Select.Root
         defaultValue={defaultOption}
+        value={item[itemKey]}
         onValueChange={(value) => onChange(itemKey, value)}
       >
         <Select.Trigger />
@@ -43,7 +45,7 @@ const ContainerSelect: React.FC<ContainerSelectProps> = ({
                 )}
                 {group.groupOptions.map((option) => (
                   <Select.Item
-                    key={option.value}
+                    key={option.label}
                     value={option.value}
                     disabled={option.disable}
                   >

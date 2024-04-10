@@ -13,12 +13,12 @@ export interface LineSelectProps {
 const LineSelect: React.FC<LineSelectProps> = ({ options, item, onChange }) => {
   return (
     <Flex direction="row" justify="between" gap="3">
-      {options.map((option, index) => (
+      {options.map((option) => (
         <ContainerSelect
           {...option}
           item={item}
           onChange={onChange}
-          key={index}
+          key={option.itemKey}
         />
       ))}
     </Flex>

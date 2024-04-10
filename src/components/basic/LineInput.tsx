@@ -13,12 +13,12 @@ export interface LineInputProps {
 const LineInput: React.FC<LineInputProps> = ({ options, item, onChange }) => {
   return (
     <Flex direction="row" justify="between" gap="3" maxWidth="700px">
-      {options.map((option, index) => (
+      {options.map((option) => (
         <ContainerInput
           {...option}
           item={item}
           onChange={onChange}
-          key={index}
+          key={option.itemKey}
         />
       ))}
     </Flex>
